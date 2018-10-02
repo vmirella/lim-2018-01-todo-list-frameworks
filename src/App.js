@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { InputGroup, InputGroupAddon, InputGroupText, Input, Button, Form, FormGroup, Row, FormText, Container, Col } from 'reactstrap';
+import List from './List';
+import {Input, Button, Row, Container, Col, Form } from 'reactstrap';
 import * as firebase from 'firebase';
 
 const config = {
@@ -23,15 +24,18 @@ class App extends Component {
     } 
   }
 
+  /* handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ ingredient: e.target.value });
+  } */
+
   handleIngredientChange(e) {
     this.setState({ ingredient: e.target.value });
   }
 
   addIngredient() {
     let ingredient = this.state.ingredient;
-
     let uid = firebase.database().ref().child('ingredients').push().key;
-
     firebase.database().ref('ingredients').set({
       uid: uid,
       name: ingredient,
@@ -46,34 +50,30 @@ class App extends Component {
       this.setState({ingredients});
     });
   }
-
+ 
   render() {
+    console.log(this.state.ingredients)
+
     return (
       <Container className="App">
         <header>
           <h1>To-Do List</h1>
         </header>
         <p>
-        Ingredientes para hacer un keke.
+          Ingredientes para hacer un keke.
         </p>
-        <Row>
-          <Col sm={10}>
-            <Input className="input-ingredient" value={this.state.ingredient} onChange={this.handleIngredientChange.bind(this)}/>
-          </Col>
-          <Col sm={2}>
-            <Button type="button" color="default" onClick={this.addIngredient()}><i className="fas fa-plus"></i></Button>{' '}
-            <Button type="button" color="default"><i className="far fa-trash-alt"></i></Button>
-          </Col>
+        <Row onSubmit="handleSubmit">
+          <Form>
+            <Col sm={10}>
+              <Input className="input-ingredient" value={this.state.ingredient}/>
+            </Col>
+            <Col sm={2}>
+              <Button type="button" color="default" onClick={this.addIngredient()}><i className="fas fa-plus"></i></Button>{' '}
+              <Button type="button" color="default"><i className="far fa-trash-alt"></i></Button>
+            </Col>
+          </Form>
         </Row>
-        <Row>
-          {this.state.ingredients.map((ingredient) => {
-            return (
-              <div>
-                {ingredient.name}
-              </div>
-            )
-          })}
-        </Row>
+        <List ingredientes = {['harina','huevos']}/>
       </Container>
     );
   }
