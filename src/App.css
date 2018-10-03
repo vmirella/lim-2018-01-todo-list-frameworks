@@ -47,7 +47,7 @@ body {
   right: 40px;
 }
 
-.check, .delete-item {
+.check, .delete-item, .edit {
   background-color: transparent !important;
   color: #504c4c !important;
   position: absolute;
@@ -56,10 +56,14 @@ body {
 }
 
 .check {
+  right: 88px;
+}
+
+.edit {
   right: 44px;
 }
 
-.delete-item::before {
+.delete-item::before, .edit::before {
   content: ' ';
   height: 25px;
   border-left: 1px solid #504c4c;
@@ -77,4 +81,8 @@ body {
 
 .delete:hover, .delete-item:hover {
   color: #ff0000 !important;
+}
+
+.edit:hover {
+  color: #0000ff !important;
 }

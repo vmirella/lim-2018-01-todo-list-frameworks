@@ -6,8 +6,8 @@ import List from './List';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteAll = this.deleteAll.bind(this);
     this.state = {
