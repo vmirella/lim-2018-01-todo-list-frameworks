@@ -66,3 +66,15 @@ body {
   position: absolute;
   right: 40px;
 }
+
+.checked {
+  text-decoration: line-through;
+}
+
+.add:hover, .check:hover {
+  color: #48FCAA !important;
+}
+
+.delete:hover, .delete-item:hover {
+  color: #ff0000 !important;
+}

@@ -79,9 +79,16 @@ class App extends Component {
         </Form>  
         <ListGroup className="list-group">
           {this.state.ingredients.map((ingredient, i) => {
+            let name;
+            if(ingredient.check === 1) {
+              name = <span className="checked">{ingredient.name}</span>
+            }
+            else {
+              name = <span>{ingredient.name}</span>
+            }  
             return (
-              <ListGroupItem key={i}>
-                <span>{ingredient.name}</span>
+              <ListGroupItem key={i}>  
+                {name}            
                 <Button type="button" color="default" className="check" onClick={() => this.checkIngredient(ingredient.uid)}><i className="fas fa-check"></i></Button>
                 <Button type="button" color="default" className="delete-item" onClick={() => this.deleteIngredient(ingredient.uid)}><i className="far fa-trash-alt"></i></Button>
               </ListGroupItem>
