@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Input, Button, Row, Container, Col, Form, ListGroup, ListGroupItem } from 'reactstrap';
+import {Input, Button, Row, Container, Col, Form } from 'reactstrap';
 import * as firebase from 'firebase';
+import List from './List';
 
 class App extends Component {
 
@@ -10,8 +11,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteAll = this.deleteAll.bind(this);
     this.state = {
-      ingredient: '',
-      ingredients: []
+      ingredient: ''
     } 
   }
 
@@ -38,26 +38,6 @@ class App extends Component {
     firebase.database().ref('ingredients').remove();
     this.setState({ingredients: []});
   }
-
-  deleteIngredient(uid) {
-    firebase.database().ref('ingredients/'+uid).remove();
-  }
-
-  checkIngredient(uid) {
-    firebase.database().ref('ingredients/'+uid).update({
-      check : 1
-    });
-  }
-
-  componentDidMount() {
-    firebase.database().ref('ingredients').on('value', (snapshot) => {
-      let data = snapshot.val();
-      if(data !== null){
-        let ingredients = Object.values(data);
-        this.setState({ingredients});
-      }
-    });
-  }
  
   render() {
     return (
@@ -77,24 +57,7 @@ class App extends Component {
             </Col>
           </Row>
         </Form>  
-        <ListGroup className="list-group">
-          {this.state.ingredients.map((ingredient, i) => {
-            let name;
-            if(ingredient.check === 1) {
-              name = <span className="checked">{ingredient.name}</span>
-            }
-            else {
-              name = <span>{ingredient.name}</span>
-            }  
-            return (
-              <ListGroupItem key={i}>  
-                {name}            
-                <Button type="button" color="default" className="check" onClick={() => this.checkIngredient(ingredient.uid)}><i className="fas fa-check"></i></Button>
-                <Button type="button" color="default" className="delete-item" onClick={() => this.deleteIngredient(ingredient.uid)}><i className="far fa-trash-alt"></i></Button>
-              </ListGroupItem>
-            )
-          })}          
-        </ListGroup>
+        <List/>
       </Container>
     );
   }
