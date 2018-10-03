@@ -2,11 +2,14 @@
 
 ## Objetivo
 
-Programar un to-do list que permita crear tareas, darlas por completadas y 
-eliminarlas.
+El programa te permite escribir las tareas a seguir para realizar una receta de cocina, darlas por completadas, editar su descripción y eliminarlas.
 
 **Demo:**
 ![todo-list](https://user-images.githubusercontent.com/25906896/45767595-35985e00-bc00-11e8-87e0-553c80524c13.gif)
+
+Aquí podemos ver como editar su descripción.
+
+![todo-list](captura_editar.png)
 
 
 ## Consideraciones generales
@@ -50,25 +53,25 @@ Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
 
 #### General
 
-* [ ] El `README.md` debe contener un resumen de lo que encontraremos en tu 
+* [x] El `README.md` debe contener un resumen de lo que encontraremos en tu 
 proyecto.
 
 #### Funcionalidades
 
-* [ ] Permite crear nuevas tareas.
-* [ ] No debe dejar agregar tareas vacías de ningún tipo.
-* [ ] Permite marcar las tareas completadas.
-* [ ] Permite eliminar tareas específicas.
-* [ ] Deberá contener mínimo 2 componentes.
+* [x] Permite crear nuevas tareas.
+* [x] No debe dejar agregar tareas vacías de ningún tipo.
+* [x] Permite marcar las tareas completadas.
+* [x] Permite eliminar tareas específicas.
+* [x] Deberá contener mínimo 2 componentes.
 
 #### Desplegado
 
-* [ ] Deberá ser desplegado en gh-pages, Heroku, etc.
+* [x] Deberá ser desplegado en gh-pages, Heroku, etc.
 
 ### Hacker Edition
 
-* [ ] Editar la tarea.
-* [ ] Implementar las operaciones de CRUD de la data con Firebase.
+* [x] Editar la tarea.
+* [x] Implementar las operaciones de CRUD de la data con Firebase.
 
 
 
