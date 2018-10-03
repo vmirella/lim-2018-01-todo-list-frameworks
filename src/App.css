@@ -12,5 +12,57 @@ body {
 .input-ingredient {
   background-color: transparent !important;
   color: #fafafa !important;
-  border: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #fafafa !important;
+}
+
+.input-ingredient:focus {
+  box-shadow: none !important;
+}
+
+.list-group {
+  color: #504c4c;
+  margin-top: 20px; 
+  text-align: left;
+}
+
+.add, .delete {
+  background-color: transparent !important;
+  color: #fafafa !important;
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+
+.add {
+  right: 60px;
+}
+
+.delete::before {
+  content: ' ';
+  height: 25px;
+  border-left: 1px solid #fafafa;
+  position: absolute;
+  right: 40px;
+}
+
+.check, .delete-item {
+  background-color: transparent !important;
+  color: #504c4c !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.check {
+  right: 44px;
+}
+
+.delete-item::before {
+  content: ' ';
+  height: 25px;
+  border-left: 1px solid #504c4c;
+  position: absolute;
+  right: 40px;
 }
